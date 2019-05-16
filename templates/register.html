@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     {% load staticfiles %}
     <!-- CSS Files -->
-    <link href="{% static "/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" media="screen"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <!-- Colors -->
     <link href="{% static "/assets/css/css-index.css" %}" rel="stylesheet" media="screen">
     <link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
@@ -24,8 +24,7 @@
 <div id="preloader" style="background: #fff url({% static "assets/img/loading.GIF" %}) no-repeat center center;"></div>
 <div id="top"></div>
 
-<div class="fullscreen landing parallax" style="background-image:url({% static "assets/img/bg.jpg" %});"
-     data-img-width="2000" data-img-height="1333" data-diff="100">
+<div class="fullscreen landing parallax" style="background-image:url({% static "assets/img/bg.jpg" %}); background-size: 100% 100%; background-repeat: no-repeat">
 
     <div class="overlay">
         <div class="container">
@@ -43,7 +42,7 @@
 
                     <!-- /.header paragraph -->
                     <div class="landing-text wow fadeInUp">
-                        <p>Take full reuse of Python's existing powerful libraries: Requests, unittest and Locust. And
+                        <p>Take full reuse of Python's existing powerful libraries: HttpRunner, Celery and Django. And
                             achieve the goal of API automation test, production environment monitoring, and API
                             performance test, with a concise and elegant manner.
 
@@ -95,9 +94,9 @@
     </div>
 </div>
 
-<script src="{% static "assets/js/jquery.min.js" %}"></script>
-<script src="{% static "assets/js/jquery.serializejson.min.js" %}"></script>
-<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{% static "assets/js/custom.js" %}"></script>
 <script src="{% static "assets/js/jquery.sticky.js" %}"></script>
 <script src="{% static "assets/js/wow.min.js" %}"></script>
@@ -124,7 +123,7 @@
                         },
                         regexp: {
                             regexp: /^[a-z0-9_-]{3,16}$/,
-                            message: '用户名只能包含大写、小写、数字和下划线'
+                            message: '用户名只能包含、小写、数字和下划线'
                         }
                     }
                 },
@@ -137,7 +136,7 @@
                         },
                         regexp: {
                             regexp: /^[a-z0-9_-]{3,16}$/,
-                            message: '密码只能包含大写、小写、数字和下划线'
+                            message: '密码只能包含、小写、数字和下划线'
                         }
                     }
                 },
@@ -175,9 +174,9 @@
                 data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function (data) {
-                    if(data === '恭喜您，账号已成功注册'){
+                    if (data === '恭喜您，账号已成功注册') {
                         window.location.href = '/api/login/';
-                    }else {
+                    } else {
                         alert(data);
                     }
                 },
